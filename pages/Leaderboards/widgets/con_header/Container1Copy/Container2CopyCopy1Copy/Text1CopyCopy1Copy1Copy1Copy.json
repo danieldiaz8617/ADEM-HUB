@@ -1,0 +1,56 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 14,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT_WITH_LIMITS",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1.25rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "ird068o0ge",
+  "leftColumn": 0,
+  "maxDynamicHeight": 6,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 6,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "originalBottomRow": 14,
+  "originalTopRow": 10,
+  "overflow": "NONE",
+  "parentColumnSpace": 8.5673828125,
+  "parentId": "oznllyi6kl",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "shouldScrollContents": true,
+  "shouldTruncate": false,
+  "text": "{{ \n(() => {\n  const events = GetEvents?.data || [];\n  const associations = GetAssociationsInfo?.data || [];\n\n  // Step 1: Aggregate data by AssociationsID\n  const scores = {};\n\n  events.forEach(row => {\n    const id = row.AssociationsID;\n    if (!id) return;\n\n    if (!scores[id]) {\n      scores[id] = {\n        activityCount: 0,\n        participants: 0,\n        firstDate: row.Date ? new Date(row.Date) : new Date(8640000000000000)\n      };\n    }\n\n    scores[id].activityCount += 1;\n    scores[id].participants += Number(row.Participants) || 0;\n\n    const eventDate = row.Date ? new Date(row.Date) : new Date(8640000000000000);\n    if (eventDate < scores[id].firstDate) {\n      scores[id].firstDate = eventDate;\n    }\n  });\n\n  // Step 2: Convert to array and compute score\n  const ranked = Object.entries(scores).map(([id, stat]) => ({\n    id,\n    score: (stat.activityCount * 0.75) + (stat.participants * 0.25),\n    firstDate: stat.firstDate\n  }));\n\n  // Step 3: Sort by score descending, then by firstDate ascending\n  const sorted = ranked.sort((a, b) => {\n    if (b.score !== a.score) return b.score - a.score;\n    return a.firstDate - b.firstDate;\n  });\n\n  // Step 4: Find association in first place\n  const topID = sorted[0]?.id;\n  const topAssociation = associations.find(assoc => String(assoc.ID) === String(topID));\n\n  return topAssociation?.Abbreviation || \"Not found\";\n})() \n}}",
+  "textAlign": "CENTER",
+  "textColor": "#e0dede",
+  "topRow": 10,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "k74vtv2t54",
+  "widgetName": "Text1CopyCopy1Copy1Copy1Copy"
+}

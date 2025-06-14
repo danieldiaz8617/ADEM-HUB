@@ -1,0 +1,66 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 84,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "defaultText": "{{ FetchTicketAssociation.data.find(row => row.rowIndex == TicketSelect.selectedOptionValue)?.LinkedIn || \"\" }}\n",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    },
+    {
+      "key": "validation"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "errorMessage": "Please enter only the LinkedIn handle (e.g., in/username or company/username). Do not include the full URL or \"linkedin.com\".",
+  "iconAlign": "left",
+  "iconName": "link",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "1198fmzag4",
+  "label": "LinkedIn",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 41,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 56,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 49,
+  "needsErrorInfo": false,
+  "originalBottomRow": 86,
+  "originalTopRow": 79,
+  "parentColumnSpace": 17.9296875,
+  "parentId": "o8oed270en",
+  "parentRowSpace": 10,
+  "regex": "",
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 60,
+  "showStepArrows": false,
+  "topRow": 77,
+  "type": "INPUT_WIDGET_V2",
+  "validation": "{{ /^(?!.*linkedin\\.com)(?:in|company)\\/[a-zA-Z0-9-]{3,100}$/.test(Update_Association_Linkedin.text) }}",
+  "version": 2,
+  "widgetId": "9dn2ynjnc7",
+  "widgetName": "LinkedInTicket"
+}

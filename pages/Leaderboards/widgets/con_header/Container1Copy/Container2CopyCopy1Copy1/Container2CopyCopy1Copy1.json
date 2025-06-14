@@ -1,0 +1,97 @@
+{
+  "animateLoading": true,
+  "backgroundColor": "{{ \n(() => {\n  const events = GetEvents?.data || [];\n  const associations = GetAssociationsInfo?.data || [];\n\n  // Step 1: Aggregate event data per AssociationsID\n  const scores = {};\n\n  events.forEach(row => {\n    const id = row.AssociationsID;\n    if (!id) return;\n\n    if (!scores[id]) {\n      scores[id] = {\n        activityCount: 0,\n        participants: 0,\n        firstDate: row.Date ? new Date(row.Date) : new Date(8640000000000000)\n      };\n    }\n\n    scores[id].activityCount += 1;\n    scores[id].participants += Number(row.Participants) || 0;\n\n    const rowDate = row.Date ? new Date(row.Date) : new Date(8640000000000000);\n    if (rowDate < scores[id].firstDate) {\n      scores[id].firstDate = rowDate;\n    }\n  });\n\n  // Step 2: Convert to array and calculate score\n  const ranked = Object.entries(scores).map(([id, stat]) => ({\n    id,\n    score: (stat.activityCount * 0.75) + (stat.participants * 0.25),\n    firstDate: stat.firstDate\n  }));\n\n  // Step 3: Sort by score descending, then by earliest firstDate\n  const sorted = ranked.sort((a, b) => {\n    if (b.score !== a.score) return b.score - a.score;\n    return a.firstDate - b.firstDate;\n  });\n\n  // Step 4: Get second place ID\n  const secondID = sorted[1]?.id;\n\n  // Step 5: Return the Color of the second place association\n  const assoc = associations.find(a => String(a.ID) === String(secondID));\n  return assoc?.Color || \"Not found\";\n})()\n}}",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "1.5rem",
+  "borderWidth": "1",
+  "bottomRow": 39,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "children": [
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 160,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "v81h7wrcu5",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 100,
+      "minWidth": 450,
+      "mobileBottomRow": 100,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 149.80078125,
+      "mobileTopRow": 0,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "a51aj6eyax",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 149.80078125,
+      "topRow": 0,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "sw3kjlegkb",
+      "widgetName": "Canvas115CopyCopy1Copy1"
+    }
+  ],
+  "containerStyle": "card",
+  "dynamicBindingPathList": [
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "backgroundColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "stretch",
+  "isCanvas": true,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "u43zk4miyt",
+  "leftColumn": 9,
+  "maxDynamicHeight": 16,
+  "minDynamicHeight": 10,
+  "minWidth": 450,
+  "mobileBottomRow": 33,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 23,
+  "needsErrorInfo": false,
+  "originalBottomRow": 39,
+  "originalTopRow": 23,
+  "parentColumnSpace": 6.24169921875,
+  "parentId": "dquae0mvhy",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 17,
+  "shouldScrollContents": false,
+  "topRow": 23,
+  "type": "CONTAINER_WIDGET",
+  "version": 1,
+  "widgetId": "a51aj6eyax",
+  "widgetName": "Container2CopyCopy1Copy1"
+}

@@ -1,0 +1,97 @@
+{
+  "animateLoading": true,
+  "backgroundColor": "{{ \n(() => {\n  const events = GetEvents?.data || [];\n  const associations = GetAssociationsInfo?.data || [];\n\n  // Step 1: Aggregate data per AssociationsID\n  const scores = {};\n\n  events.forEach(row => {\n    const id = row.AssociationsID;\n    if (!id) return;\n\n    if (!scores[id]) {\n      scores[id] = {\n        activityCount: 0,\n        participants: 0,\n        firstDate: row.Date ? new Date(row.Date) : new Date(8640000000000000)\n      };\n    }\n\n    scores[id].activityCount += 1;\n    scores[id].participants += Number(row.Participants) || 0;\n\n    const eventDate = row.Date ? new Date(row.Date) : new Date(8640000000000000);\n    if (eventDate < scores[id].firstDate) {\n      scores[id].firstDate = eventDate;\n    }\n  });\n\n  // Step 2: Build a list with score and firstDate\n  const ranked = Object.entries(scores).map(([id, stats]) => ({\n    id,\n    score: (stats.activityCount * 0.75) + (stats.participants * 0.25),\n    firstDate: stats.firstDate\n  }));\n\n  // Step 3: Sort by score descending, then earliest date ascending\n  const sorted = ranked.sort((a, b) => {\n    if (b.score !== a.score) return b.score - a.score;\n    return a.firstDate - b.firstDate;\n  });\n\n  // Step 4: Get third place association ID\n  const thirdPlaceID = sorted[2]?.id;\n\n  // Step 5: Find and return color\n  const assoc = associations.find(a => String(a.ID) === String(thirdPlaceID));\n  return assoc?.Color || \"Not found\";\n})()\n}}",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "1.5rem",
+  "borderWidth": "1",
+  "bottomRow": 47,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "children": [
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 160,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "v81h7wrcu5",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 100,
+      "minWidth": 450,
+      "mobileBottomRow": 100,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 149.80078125,
+      "mobileTopRow": 0,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "7s6abuktju",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 149.80078125,
+      "topRow": 0,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "mzjr3jw61h",
+      "widgetName": "Canvas115CopyCopy1"
+    }
+  ],
+  "containerStyle": "card",
+  "dynamicBindingPathList": [
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "backgroundColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "stretch",
+  "isCanvas": true,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "u43zk4miyt",
+  "leftColumn": 47,
+  "maxDynamicHeight": 16,
+  "minDynamicHeight": 10,
+  "minWidth": 450,
+  "mobileBottomRow": 33,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 23,
+  "needsErrorInfo": false,
+  "originalBottomRow": 47,
+  "originalTopRow": 31,
+  "parentColumnSpace": 6.24169921875,
+  "parentId": "dquae0mvhy",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 55,
+  "shouldScrollContents": false,
+  "topRow": 31,
+  "type": "CONTAINER_WIDGET",
+  "version": 1,
+  "widgetId": "7s6abuktju",
+  "widgetName": "Container2CopyCopy1"
+}

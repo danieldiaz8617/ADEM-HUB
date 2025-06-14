@@ -1,0 +1,67 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 58,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "defaultText": "{{ Association.data.find(row => row.ID == Select_Association.selectedOptionValue)?.Color || \"\" }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    },
+    {
+      "key": "validation"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [],
+  "errorMessage": "Please enter a valid hex color code, like #FFF or #FFFFFF.",
+  "iconAlign": "left",
+  "iconName": "key-command",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "1198fmzag4",
+  "label": "Color (Hex)",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextColor": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 2,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 28,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 21,
+  "needsErrorInfo": false,
+  "originalBottomRow": 58,
+  "originalTopRow": 51,
+  "parentColumnSpace": 17.9296875,
+  "parentId": "tkmoabcdum",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 30,
+  "showStepArrows": false,
+  "topRow": 51,
+  "type": "INPUT_WIDGET_V2",
+  "validation": "{{/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(Update_Association_Color.text)}}",
+  "version": 2,
+  "widgetId": "kuo2lhx8w4",
+  "widgetName": "Update_Association_Color"
+}

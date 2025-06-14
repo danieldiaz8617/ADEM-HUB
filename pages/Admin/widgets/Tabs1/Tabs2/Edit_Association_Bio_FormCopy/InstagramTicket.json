@@ -1,0 +1,65 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 84,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "defaultText": "{{ FetchTicketAssociation.data.find(row => row.rowIndex == TicketSelect.selectedOptionValue)?.Instagram || \"\" }}\n",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "defaultText"
+    },
+    {
+      "key": "validation"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "errorMessage": "Please enter only the Instagram username, not the full link.",
+  "iconAlign": "left",
+  "iconName": "link",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "1198fmzag4",
+  "label": "Instagram",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 21,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 56,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 49,
+  "needsErrorInfo": false,
+  "originalBottomRow": 86,
+  "originalTopRow": 79,
+  "parentColumnSpace": 17.9296875,
+  "parentId": "o8oed270en",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 41,
+  "showStepArrows": false,
+  "topRow": 77,
+  "type": "INPUT_WIDGET_V2",
+  "validation": "{{ /^(?!.*instagram\\.com)(?!.*\\/)[a-zA-Z0-9._]{1,30}$/.test(Update_Association_Instagram.text) }}",
+  "version": 2,
+  "widgetId": "fc6lhzt5pz",
+  "widgetName": "InstagramTicket"
+}

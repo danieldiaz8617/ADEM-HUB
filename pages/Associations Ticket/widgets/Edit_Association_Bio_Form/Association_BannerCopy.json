@@ -1,0 +1,41 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 30,
+  "boxShadow": "none",
+  "defaultImage": "https://assets.appsmith.com/widgets/default.png",
+  "dynamicBindingPathList": [
+    {
+      "key": "image"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "enableDownload": false,
+  "enableRotation": false,
+  "flexVerticalAlignment": "start",
+  "image": "{{Update_Association_Banner.text}}",
+  "imageShape": "RECTANGLE",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "s6p7bxuywc",
+  "leftColumn": 2,
+  "maxZoomLevel": 1,
+  "mobileBottomRow": 25,
+  "mobileLeftColumn": 15,
+  "mobileRightColumn": 27,
+  "mobileTopRow": 13,
+  "needsErrorInfo": false,
+  "objectFit": "cover",
+  "originalBottomRow": 30,
+  "originalTopRow": 4,
+  "parentColumnSpace": 13.53125,
+  "parentId": "tkmoabcdum",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 60,
+  "topRow": 4,
+  "type": "IMAGE_WIDGET",
+  "version": 1,
+  "widgetId": "tdxnuadbjv",
+  "widgetName": "Association_BannerCopy"
+}

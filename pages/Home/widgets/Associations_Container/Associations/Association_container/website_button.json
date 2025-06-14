@@ -1,0 +1,46 @@
+{
+  "animateLoading": true,
+  "borderRadius": "2rem",
+  "bottomRow": 20,
+  "boxShadow": "none",
+  "defaultImage": "https://assets.appsmith.com/widgets/default.png",
+  "dynamicBindingPathList": [],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "enableDownload": false,
+  "enableRotation": false,
+  "flexVerticalAlignment": "start",
+  "image": "data:image/svg+xml;utf8,%3Csvg width='1' height='1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M.466.583a.034.034 0 0 0 0-.049.096.096 0 0 1 0-.136L.581.283A.096.096 0 0 1 .717.42L.682.455A.034.034 0 1 0 .73.503L.766.467A.165.165 0 1 0 .533.235L.418.35a.165.165 0 0 0 0 .233.034.034 0 0 0 .048 0zM.533.419a.034.034 0 0 0 0 .048.096.096 0 0 1 0 .136L.419.717A.096.096 0 1 1 .283.581L.316.548A.034.034 0 1 0 .268.5L.235.533a.165.165 0 1 0 .232.233L.581.652a.164.164 0 0 0 0-.233.034.034 0 0 0-.048 0z' fill='%23000'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h1v1H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E",
+  "imageShape": "RECTANGLE",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "f3o57kroax",
+  "leftColumn": 49,
+  "maxZoomLevel": 1,
+  "mobileBottomRow": 25,
+  "mobileLeftColumn": 49,
+  "mobileRightColumn": 61,
+  "mobileTopRow": 13,
+  "needsErrorInfo": false,
+  "objectFit": "contain",
+  "onClick": "{{navigateTo(\"https://\" + currentItem[\"JoinMembership\"], {}, 'NEW_WINDOW');}}",
+  "parentColumnSpace": 1.8984370976686478,
+  "parentId": "66a0440f3r",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 53,
+  "topRow": 15,
+  "type": "IMAGE_WIDGET",
+  "version": 1,
+  "widgetId": "hsnxvn86yb",
+  "widgetName": "website_button"
+}

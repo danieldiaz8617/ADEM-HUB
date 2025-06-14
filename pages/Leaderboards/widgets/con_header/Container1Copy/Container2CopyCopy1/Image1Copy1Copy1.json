@@ -1,0 +1,41 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 10,
+  "boxShadow": "none",
+  "defaultImage": "{{\n(() => {\n  const events = GetEvents?.data || [];\n  const associations = GetAssociationsInfo?.data || [];\n\n  // Step 1: Aggregate activity and participant counts by AssociationsID\n  const scores = {};\n\n  events.forEach(row => {\n    const id = row.AssociationsID;\n    if (!id) return;\n\n    if (!scores[id]) {\n      scores[id] = {\n        activityCount: 0,\n        participants: 0,\n        firstDate: row.Date ? new Date(row.Date) : new Date(8640000000000000) // Max date as default\n      };\n    }\n\n    scores[id].activityCount += 1;\n    scores[id].participants += Number(row.Participants) || 0;\n\n    // Track earliest activity date per association\n    const eventDate = row.Date ? new Date(row.Date) : new Date(8640000000000000);\n    if (eventDate < scores[id].firstDate) {\n      scores[id].firstDate = eventDate;\n    }\n  });\n\n  // Step 2: Convert to array with computed score\n  const ranking = Object.entries(scores).map(([id, stats]) => ({\n    id,\n    score: (stats.activityCount * 0.75) + (stats.participants * 0.25),\n    firstDate: stats.firstDate\n  }));\n\n  // Step 3: Sort by score descending, then by earliest date ascending\n  const sorted = ranking.sort((a, b) => {\n    if (b.score !== a.score) {\n      return b.score - a.score; // Higher score first\n    }\n    return a.firstDate - b.firstDate; // Earlier date wins tie\n  });\n\n  // Step 4: Get second place\n  const secondPlace = sorted[2];\n  const secondAssociation = associations.find(\n    assoc => String(assoc.ID) === String(secondPlace?.id)\n  );\n\n  return secondAssociation?.Logo || \"Not found\";\n})()\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "defaultImage"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "enableDownload": false,
+  "enableRotation": false,
+  "flexVerticalAlignment": "start",
+  "image": "",
+  "imageShape": "RECTANGLE",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "uk4dn134rx",
+  "leftColumn": 0,
+  "maxZoomLevel": 1,
+  "mobileBottomRow": 154,
+  "mobileLeftColumn": 13,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 142,
+  "needsErrorInfo": false,
+  "objectFit": "contain",
+  "originalBottomRow": 21,
+  "originalTopRow": 9,
+  "parentColumnSpace": 13.53125,
+  "parentId": "mzjr3jw61h",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "topRow": 0,
+  "type": "IMAGE_WIDGET",
+  "version": 1,
+  "widgetId": "pgi53rknro",
+  "widgetName": "Image1Copy1Copy1"
+}

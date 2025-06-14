@@ -1,0 +1,62 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "0.375rem",
+  "bottomRow": 67,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "defaultText": "{{ FetchTicketAssociation.data.find(row => row.rowIndex == TicketSelect.selectedOptionValue)?.Banner || \"\" }}\n",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultText"
+    },
+    {
+      "key": "validation"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "errorMessage": "Please enter a valid link (e.g., https://example.com or example.com).",
+  "iconAlign": "left",
+  "iconName": "media",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "pzk4lxjix7",
+  "label": "Banner",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 30,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 37,
+  "mobileLeftColumn": 41,
+  "mobileRightColumn": 61,
+  "mobileTopRow": 30,
+  "needsErrorInfo": false,
+  "originalBottomRow": 38,
+  "originalTopRow": 31,
+  "parentColumnSpace": 4.76171875,
+  "parentId": "o8oed270en",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 60,
+  "showStepArrows": false,
+  "topRow": 60,
+  "type": "INPUT_WIDGET_V2",
+  "validation": "{{/^(https?:\\/\\/)?([^\\s.]+\\.[^\\s]{2,}|localhost)(\\/\\S*)?$/.test(Update_Association_Banner.text)}}",
+  "version": 2,
+  "widgetId": "m70kozxl6m",
+  "widgetName": "BannerTicket"
+}

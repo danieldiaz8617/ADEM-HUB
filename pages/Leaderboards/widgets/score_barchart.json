@@ -1,0 +1,118 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowScroll": false,
+  "animateLoading": true,
+  "borderRadius": "0px",
+  "bottomRow": 110,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "chartData": {
+    "jg7fsfoz4b": {
+      "data": [
+        {
+          "x": "Product1",
+          "y": 20000
+        },
+        {
+          "x": "Product2",
+          "y": 22000
+        },
+        {
+          "x": "Product3",
+          "y": 32000
+        }
+      ],
+      "seriesName": "2023"
+    }
+  },
+  "chartName": "Sales Report",
+  "chartType": "CUSTOM_ECHART",
+  "customEChartConfig": "{{ ((chartType) => (  \n(() => {\n  const events = GetEvents?.data || [];\n  const associations = GetAssociationsInfo?.data || [];\n\n  // Aggregate scores and first activity dates\n  const scoreMap = {};\n\n  events.forEach(log => {\n    const assocID = log?.AssociationsID;\n    if (!assocID) return;\n\n    if (!scoreMap[assocID]) {\n      scoreMap[assocID] = {\n        activityCount: 0,\n        participants: 0,\n        firstDate: log.Date ? new Date(log.Date) : new Date(8640000000000000)\n      };\n    }\n\n    scoreMap[assocID].activityCount += 1;\n    scoreMap[assocID].participants += Number(log.Participants) || 0;\n\n    const logDate = log.Date ? new Date(log.Date) : new Date(8640000000000000);\n    if (logDate < scoreMap[assocID].firstDate) {\n      scoreMap[assocID].firstDate = logDate;\n    }\n  });\n\n  // Merge associations with score data\n  const allData = associations.map(obj => {\n    const stats = scoreMap[obj.ID] || {\n      participants: 0,\n      activityCount: 0,\n      firstDate: new Date(8640000000000000)\n    };\n\n    const value = (stats.participants * 0.25) + (stats.activityCount * 0.75);\n\n    return {\n      id: obj.ID,\n      abbreviation: obj.Abbreviation,\n      value,\n      activityCount: stats.activityCount,\n      firstDate: stats.firstDate,\n      color: obj.Color || \"#000000\"\n    };\n  });\n\n  // Split into two groups and sort appropriately\n  const withValue = allData\n    .filter(item => item.value > 0)\n    .sort((a, b) => {\n      if (a.value !== b.value) return a.value - b.value; // Ascending value\n      return b.firstDate - a.firstDate; // Later firstDate on top if tie\n    });\n\n  const noValue = allData\n    .filter(item => item.value === 0)\n    .sort((a, b) => b.id - a.id); // Descending ID\n\n  const sortedData = [...noValue, ...withValue]; // Combine in correct order\n\n  // Chart config\n  return {\n    dataset: {\n      source: [\n        [\"Associations\", \"Score\", \"Activity Count\"],\n        ...sortedData.map(item => [item.abbreviation, item.value, item.activityCount])\n      ]\n    },\n    tooltip: {\n      trigger: \"axis\",\n      axisPointer: { type: \"shadow\" }\n    },\n    xAxis: [{ type: \"value\" }],\n    yAxis: [{\n      type: \"category\",\n      data: sortedData.map(item => item.abbreviation)\n    }],\n    series: [{\n      type: \"bar\",\n      data: sortedData.map(item => ({\n        value: item.value,\n        name: item.abbreviation,\n        itemStyle: { color: item.color }\n      })),\n      barCategoryGap: \"20%\"\n    }]\n  };\n})() \n))(score_barchart.chartType) }}",
+  "customFusionChartConfig": {
+    "dataSource": {
+      "chart": {
+        "alignCaptionWithCanvas": 1,
+        "canvasPadding": "0",
+        "caption": "Sales Report",
+        "captionAlignment": "center",
+        "captionFontColor": "#231F20",
+        "captionFontSize": "24",
+        "captionPadding": "20",
+        "chartBottomMargin": "10",
+        "chartLeftMargin": "20",
+        "chartRightMargin": "40",
+        "chartTopMargin": "10",
+        "labelFontColor": "#716e6e",
+        "labelFontSize": "12",
+        "legendIconAlpha": "100",
+        "legendIconBgAlpha": "100",
+        "legendIconSides": "4",
+        "legendPosition": "top",
+        "theme": "fusion",
+        "xAxisName": "Product Line",
+        "xAxisNameFontColor": "#716e6e",
+        "xAxisNameFontSize": "14",
+        "yAxisName": "Revenue($)",
+        "yAxisNameFontColor": "#716e6e",
+        "yAxisNameFontSize": "14",
+        "yAxisValueFontColor": "#716e6e",
+        "yAxisValueFontSize": "12"
+      },
+      "data": [
+        {
+          "label": "Product1",
+          "value": 20000
+        },
+        {
+          "label": "Product2",
+          "value": 22000
+        },
+        {
+          "label": "Product3",
+          "value": 32000
+        }
+      ]
+    },
+    "type": "column2d"
+  },
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "customEChartConfig"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "npatu3ppqw",
+  "labelOrientation": "auto",
+  "leftColumn": 0,
+  "minWidth": 450,
+  "mobileBottomRow": 123,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 26,
+  "mobileTopRow": 91,
+  "needsErrorInfo": true,
+  "originalBottomRow": 67,
+  "originalTopRow": 37,
+  "parentColumnSpace": 16.8125,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 32,
+  "showDataPointLabel": false,
+  "topRow": 74,
+  "type": "CHART_WIDGET",
+  "version": 1,
+  "widgetId": "hf1bk35v61",
+  "widgetName": "score_barchart",
+  "xAxisName": "Product Line",
+  "yAxisName": "Revenue($)"
+}

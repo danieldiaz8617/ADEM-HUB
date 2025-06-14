@@ -1,0 +1,48 @@
+{
+  "animateLoading": true,
+  "borderRadius": "2rem",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "defaultImage": "https://assets.appsmith.com/widgets/default.png",
+  "dynamicBindingPathList": [],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "enableDownload": false,
+  "enableRotation": false,
+  "flexVerticalAlignment": "start",
+  "image": "data:image/svg+xml;utf8,<svg width='1' height='1' fill='none' xmlns='http://www.w3.org/2000/svg'><g clip-path='url(%23a)'><mask id='b' style='mask-type:luminance' maskUnits='userSpaceOnUse' x='0' y='0' width='1' height='1'><path d='M1 0H0v1h1V0z' fill='%23fff'/></mask><g mask='url(%23b)'><circle cx='.5' cy='.5' r='.5' fill='%23ffffff'/><path d='M.3.25h.4a.05.05 0 0 1 .05.05v.4a.05.05 0 0 1-.05.05h-.4a.05.05 0 0 1-.05-.05v-.4a.05.05 0 0 1 .05-.05zm.2.08a.17.17 0 1 0 0 .34.17.17 0 0 0 0-.34zm.13-.06a.03.03 0 1 0 0 .06.03.03 0 0 0 0-.06z' fill='%23000000'/></g></g><defs><clipPath id='a'><path fill='%23fff' d='M0 0h1v1H0z'/></clipPath></defs></svg>",
+  "imageShape": "RECTANGLE",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "f3o57kroax",
+  "leftColumn": 37,
+  "maxZoomLevel": 1,
+  "mobileBottomRow": 25,
+  "mobileLeftColumn": 49,
+  "mobileRightColumn": 61,
+  "mobileTopRow": 13,
+  "needsErrorInfo": false,
+  "objectFit": "contain",
+  "onClick": "{{navigateTo(\"https://www.instagram.com/\" + Association_Info.data.find(row => row.ID === Select_Association.selectedOptionValue)?.Instagram, {}, 'NEW_WINDOW');}}",
+  "originalBottomRow": 14,
+  "originalTopRow": 9,
+  "parentColumnSpace": 1.8984370976686478,
+  "parentId": "rcsm5cf64f",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 41,
+  "topRow": 22,
+  "type": "IMAGE_WIDGET",
+  "version": 1,
+  "widgetId": "iwa8smdnys",
+  "widgetName": "instagram_button"
+}

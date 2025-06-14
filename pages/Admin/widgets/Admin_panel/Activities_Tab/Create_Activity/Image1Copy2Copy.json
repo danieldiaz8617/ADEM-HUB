@@ -1,0 +1,41 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 21,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "defaultImage": "https://assets.appsmith.com/widgets/default.png",
+  "dynamicBindingPathList": [
+    {
+      "key": "image"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "enableDownload": false,
+  "enableRotation": false,
+  "flexVerticalAlignment": "start",
+  "image": "{{ Association_Info.data.find(row => row.ID === activity_owner.selectedOptionValue)?.Logo}}",
+  "imageShape": "RECTANGLE",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "nwo2cahqnf",
+  "leftColumn": 0,
+  "maxZoomLevel": 1,
+  "mobileBottomRow": 17,
+  "mobileLeftColumn": 43,
+  "mobileRightColumn": 55,
+  "mobileTopRow": 5,
+  "needsErrorInfo": false,
+  "objectFit": "cover",
+  "originalBottomRow": 17,
+  "originalTopRow": 4,
+  "parentColumnSpace": 22.866455078125,
+  "parentId": "vcubod3dg1",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 9,
+  "topRow": 7,
+  "type": "IMAGE_WIDGET",
+  "version": 1,
+  "widgetId": "fa8xf6jt4n",
+  "widgetName": "Image1Copy2Copy"
+}

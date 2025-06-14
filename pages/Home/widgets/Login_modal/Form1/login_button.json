@@ -1,0 +1,54 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 25,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": true,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "iconAlign": "left",
+  "iconName": "log-in",
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "khr1kb3ozt",
+  "leftColumn": 22,
+  "minWidth": 120,
+  "mobileBottomRow": 37,
+  "mobileLeftColumn": 46,
+  "mobileRightColumn": 62,
+  "mobileTopRow": 33,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  Association_Table.run()\n    .then(data => {\n      const inputEmail = association_email.text;\n      const inputPassword = association_password.text;\n\n      if (inputEmail === \"admin\") {\n        if (inputPassword === \"password\") {\n          showAlert('Welcome, Admin!', 'success');\n          navigateTo('Admin', {}, 'SAME_WINDOW');\n        } else {\n          showAlert('Invalid admin password.', 'error');\n        }\n      } else {\n        const match = data.find(item => item.EmailAssociation === inputEmail && item.Password === inputPassword);\n\n        if (match) {\n          showAlert('Password accepted!', 'success');\n          navigateTo('Associations Ticket', {\n            selectedButton: match.ID\n          }, 'SAME_WINDOW');\n        } else {\n          showAlert('Invalid email or password.', 'error');\n        }\n      }\n    })\n    .catch(error => {\n      showAlert('⚠️ Could not verify credentials.', 'warning');\n      console.error(error);\n    })\n}}\n",
+  "originalBottomRow": 37,
+  "originalTopRow": 33,
+  "parentId": "1phoxpwdin",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": true,
+  "responsiveBehavior": "hug",
+  "rightColumn": 42,
+  "text": "Log In",
+  "topRow": 21,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "xytu9mrq5k",
+  "widgetName": "login_button"
+}

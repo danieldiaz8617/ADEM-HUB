@@ -1,0 +1,118 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "allowScroll": false,
+  "animateLoading": true,
+  "borderRadius": "0px",
+  "bottomRow": 110,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "chartData": {
+    "jg7fsfoz4b": {
+      "data": [
+        {
+          "x": "Product1",
+          "y": 20000
+        },
+        {
+          "x": "Product2",
+          "y": 22000
+        },
+        {
+          "x": "Product3",
+          "y": 32000
+        }
+      ],
+      "seriesName": "2023"
+    }
+  },
+  "chartName": "Sales Report",
+  "chartType": "CUSTOM_ECHART",
+  "customEChartConfig": "{{ ((chartType) => ( \n(() => {\n  // Step 1: Aggregate activity data grouped by AssociationsID\n  const activityCounts = (GetEvents?.data || []).reduce((acc, log) => {\n    const assocID = log?.AssociationsID;\n    if (!assocID) return acc;\n\n    acc[assocID] = acc[assocID] || { participants: 0, activityCount: 0 };\n    acc[assocID].participants += Number(log.Participants) || 0;\n    acc[assocID].activityCount += 1;\n    return acc;\n  }, {});\n\n  // Step 2: Map data with calculated values per association\n  const sortedData = (GetAssociationsInfo?.data || [])\n    .map(obj => {\n      const id = obj.ID;\n      const stats = activityCounts[id] || { participants: 0, activityCount: 0 };\n      const value = (stats.participants * 0.25) + (stats.activityCount * 0.75);\n\n      return {\n        id,\n        abbreviation: obj.Abbreviation,\n        value,\n        color: obj.Color || \"#000000\",\n        activityCount: stats.activityCount\n      };\n    })\n    .filter(item => item.value > 0) // Remove associations with 0 value\n    .sort((a, b) => b.value - a.value); // Sort descending\n\n  // Step 3: Return pie chart config\n  return {\n    dataset: {\n      source: [\n        [\"Associations\", \"Score\"],\n        ...sortedData.map(item => [item.abbreviation, item.value])\n      ]\n    },\n    tooltip: { trigger: \"item\" },\n    series: [{\n      type: \"pie\",\n      radius: [\"40%\", \"70%\"],\n      data: sortedData.map(item => ({\n        value: item.value,\n        name: item.abbreviation,\n        itemStyle: { color: item.color }\n      })),\n      label: {\n        formatter: \"{b}: {d}%\" // Label format: name and percentage\n      }\n    }]\n  };\n})()\n))(score_piechart.chartType) }}",
+  "customFusionChartConfig": {
+    "dataSource": {
+      "chart": {
+        "alignCaptionWithCanvas": 1,
+        "canvasPadding": "0",
+        "caption": "Sales Report",
+        "captionAlignment": "center",
+        "captionFontColor": "#231F20",
+        "captionFontSize": "24",
+        "captionPadding": "20",
+        "chartBottomMargin": "10",
+        "chartLeftMargin": "20",
+        "chartRightMargin": "40",
+        "chartTopMargin": "10",
+        "labelFontColor": "#716e6e",
+        "labelFontSize": "12",
+        "legendIconAlpha": "100",
+        "legendIconBgAlpha": "100",
+        "legendIconSides": "4",
+        "legendPosition": "top",
+        "theme": "fusion",
+        "xAxisName": "Product Line",
+        "xAxisNameFontColor": "#716e6e",
+        "xAxisNameFontSize": "14",
+        "yAxisName": "Revenue($)",
+        "yAxisNameFontColor": "#716e6e",
+        "yAxisNameFontSize": "14",
+        "yAxisValueFontColor": "#716e6e",
+        "yAxisValueFontSize": "12"
+      },
+      "data": [
+        {
+          "label": "Product1",
+          "value": 20000
+        },
+        {
+          "label": "Product2",
+          "value": 22000
+        },
+        {
+          "label": "Product3",
+          "value": 32000
+        }
+      ]
+    },
+    "type": "column2d"
+  },
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "customEChartConfig"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "npatu3ppqw",
+  "labelOrientation": "auto",
+  "leftColumn": 32,
+  "minWidth": 450,
+  "mobileBottomRow": 123,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 26,
+  "mobileTopRow": 91,
+  "needsErrorInfo": true,
+  "originalBottomRow": 118,
+  "originalTopRow": 67,
+  "parentColumnSpace": 16.8125,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "showDataPointLabel": false,
+  "topRow": 74,
+  "type": "CHART_WIDGET",
+  "version": 1,
+  "widgetId": "nuqgmqse84",
+  "widgetName": "score_piechart",
+  "xAxisName": "Product Line",
+  "yAxisName": "Revenue($)"
+}

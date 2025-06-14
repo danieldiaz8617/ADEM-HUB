@@ -1,0 +1,41 @@
+{
+  "animateLoading": true,
+  "borderRadius": "1.5rem",
+  "bottomRow": 10,
+  "boxShadow": "none",
+  "defaultImage": "{{\n(() => {\n  const events = GetEvents?.data || [];\n  const associations = GetAssociationsInfo?.data || [];\n\n  // Step 1: Aggregate activity and participant counts by AssociationsID\n  const scores = {};\n\n  events.forEach(row => {\n    const id = row.AssociationsID;\n    if (!id) return;\n\n    if (!scores[id]) {\n      scores[id] = { activityCount: 0, participants: 0 };\n    }\n\n    scores[id].activityCount += 1;\n    scores[id].participants += Number(row.Participants) || 0;\n  });\n\n  // Step 2: Calculate score and find the top-scoring association\n  let topID = null;\n  let topScore = -1;\n\n  for (const id in scores) {\n    const { activityCount, participants } = scores[id];\n    const score = (activityCount * 0.75) + (participants * 0.25);\n\n    if (score > topScore) {\n      topScore = score;\n      topID = id;\n    }\n  }\n\n  // Step 3: Return the logo of the top-scoring association\n  const topAssociation = associations.find(assoc => String(assoc.ID) === String(topID));\n  return topAssociation?.Logo || \"Not found\";\n})()\n}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "defaultImage"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "enableDownload": false,
+  "enableRotation": false,
+  "flexVerticalAlignment": "start",
+  "image": "",
+  "imageShape": "RECTANGLE",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "uk4dn134rx",
+  "leftColumn": 0,
+  "maxZoomLevel": 1,
+  "mobileBottomRow": 154,
+  "mobileLeftColumn": 13,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 142,
+  "needsErrorInfo": false,
+  "objectFit": "contain",
+  "originalBottomRow": 21,
+  "originalTopRow": 9,
+  "parentColumnSpace": 13.53125,
+  "parentId": "oznllyi6kl",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 64,
+  "topRow": 0,
+  "type": "IMAGE_WIDGET",
+  "version": 1,
+  "widgetId": "k1g1ma0ywr",
+  "widgetName": "Image1Copy1Copy1Copy"
+}

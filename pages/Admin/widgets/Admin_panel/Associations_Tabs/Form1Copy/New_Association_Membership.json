@@ -1,0 +1,62 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 60,
+  "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+  "defaultText": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "validation"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicTriggerPathList": [],
+  "errorMessage": "Please enter a valid link (e.g., https://example.com or example.com).",
+  "iconAlign": "left",
+  "iconName": "people",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "1198fmzag4",
+  "label": "Membership Link",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 31,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 28,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 21,
+  "needsErrorInfo": false,
+  "originalBottomRow": 28,
+  "originalTopRow": 21,
+  "parentColumnSpace": 17.9296875,
+  "parentId": "z4ubp6jcef",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 60,
+  "showStepArrows": false,
+  "topRow": 53,
+  "type": "INPUT_WIDGET_V2",
+  "validation": "{{/^(https?:\\/\\/)?([^\\s.]+\\.[^\\s]{2,}|localhost)(\\/\\S*)?$/.test(New_Association_Membership.text)}}",
+  "version": 2,
+  "widgetId": "vfdia4anll",
+  "widgetName": "New_Association_Membership"
+}

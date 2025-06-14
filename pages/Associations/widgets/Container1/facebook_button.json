@@ -1,0 +1,48 @@
+{
+  "animateLoading": true,
+  "borderRadius": "2rem",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "defaultImage": "https://assets.appsmith.com/widgets/default.png",
+  "dynamicBindingPathList": [],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "enableDownload": false,
+  "enableRotation": false,
+  "flexVerticalAlignment": "start",
+  "image": "data:image/svg+xml;utf8,<svg width='1' height='1' fill='none' xmlns='http://www.w3.org/2000/svg'><g clip-path='url(%23a)'><mask id='b' style='mask-type:luminance' maskUnits='userSpaceOnUse' x='0' y='0' width='1' height='1'><path d='M1 0H0v1h1V0z' fill='%23fff'/></mask><g mask='url(%23b)'><path d='M.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z' fill='%23ffffff'/><path d='M.694.655.72.503H.56V.45C.56.37.591.339.672.339L.73.34V.203A.548.548 0 0 0 .621.19C.455.19.38.27.38.438v.065H.276v.152H.38v.33a.498.498 0 0 0 .18.011v-.34h.135z' fill='%23000000'/></g></g><defs><clipPath id='a'><path fill='%23fff' d='M0 0h1v1H0z'/></clipPath></defs></svg>",
+  "imageShape": "RECTANGLE",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "f3o57kroax",
+  "leftColumn": 33,
+  "maxZoomLevel": 1,
+  "mobileBottomRow": 25,
+  "mobileLeftColumn": 49,
+  "mobileRightColumn": 61,
+  "mobileTopRow": 13,
+  "needsErrorInfo": false,
+  "objectFit": "contain",
+  "onClick": "{{navigateTo(\"https://www.facebook.com/\" + Association_Info.data.find(row => row.ID === Select_Association.selectedOptionValue)?.Facebook, {}, 'NEW_WINDOW');}}",
+  "originalBottomRow": 14,
+  "originalTopRow": 9,
+  "parentColumnSpace": 1.8984370976686478,
+  "parentId": "rcsm5cf64f",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 37,
+  "topRow": 22,
+  "type": "IMAGE_WIDGET",
+  "version": 1,
+  "widgetId": "djpyy420vq",
+  "widgetName": "facebook_button"
+}

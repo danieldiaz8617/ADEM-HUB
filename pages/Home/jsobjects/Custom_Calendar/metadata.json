@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "67e2f1ef855fb95d4dc2a27b_39d7762e-36a7-4cdf-be49-9fc80eb1c578",
+  "id": "Home_Custom_Calendar",
+  "unpublishedCollection": {
+    "name": "Custom_Calendar",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}
