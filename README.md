@@ -21,7 +21,6 @@ The system enables student associations to manage their information, propose eve
 - **Ticket System:** Associations submit change requests reviewed by admins to ensure compliance.
 - **Leaderboards:** Tracks student participation and motivates associations through rankings.
 - **Role-Based Access:** Different permissions for Admins, Associations, and Public users.
-- **Secure Deployment:** Cloudflare Tunnel and Docker-based deployment for security and scalability.
 - **Google Sheets Backend:** Simplifies data access and management for non-technical users.
 
 ---
@@ -32,7 +31,7 @@ The system enables student associations to manage their information, propose eve
 | ------------- | ----------- |
 | Frontend      | Appsmith |
 | Backend       | Google Sheets |
-| Deployment    | Docker + Cloudflare Tunnel |
+| Deployment (Private)    | Docker + Cloudflare Tunnel |
 | Authentication | Spreadsheet-based login (future: SSO integration) |
 | Version Control | GitHub |
 
@@ -59,7 +58,7 @@ Comprehensive testing included:
 
 ---
 
-## ⚙️ Deployment Overview
+## ⚙️ Deployment Overview (Private)
 
 1. Provision Ubuntu Server VM
 2. Install Docker & Docker Compose
